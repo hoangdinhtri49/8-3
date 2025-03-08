@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc Mừng Ngày 8/3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #fff0f5;
+            color: #333;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            background-image: linear-gradient(to bottom right, #fff0f5, #ffe4e1);
+        }
+        
+        .container {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+        
+        header {
+            margin-bottom: 30px;
+        }
+        
+        h1 {
+            color: #d8387d;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 2s;
+        }
+        
+        .subtitle {
+            color: #ff6b9c;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            animation: fadeIn 2.5s;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+            animation: slideUp 1s;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, #ff6b9c, #d8387d);
+        }
+        
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            color: #555;
+        }
+        
+        .signature {
+            font-family: 'Brush Script MT', cursive;
+            font-size: 1.8rem;
+            color: #d8387d;
+            margin-top: 20px;
+        }
+        
+        .heart {
+            color: #d8387d;
+            font-size: 1.5rem;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .memory {
+            width: 150px;
+            height: 150px;
+            background-color: #f8d7e3;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            animation: fadeIn 3s;
+            overflow: hidden;
+        }
+        
+        .memory:hover {
+            transform: scale(1.05);
+        }
+        
+        .memory img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .placeholder-text {
+            color: #d8387d;
+            font-size: 0.9rem;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .flowers {
+            position: absolute;
+            width: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .flower {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: falling 10s linear infinite;
+        }
+        
+        .flower1 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff6b9c' d='M50 15c-3 10-18 15-25 5s0-20 10-15c-10-5-10-15 0-20s22 5 25 15c3-10 15-20 25-15s10 15 0 20c10-5 17-5 10 5s-22-5-25-5c3 0 15 15 15 25s-15 15-20 0c5 15-5 20-15 15s-10-22 0-30z'/%3E%3C/svg%3E");
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .flower2 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d8387d' d='M50 10c5 0 10 20 5 25s-15-5-15-10 5-15 10-15zm0 80c-5 0-10-20-5-25s15 5 15 10-5 15-10 15zm40-40c0 5-20 10-25 5s5-15 10-15 15 5 15 10zm-80 0c0-5 20-10 25-5s-5 15-10 15-15-5-15-10zm60-28c3 3-7 21-14 21s-8-14-5-18 16-6 19-3zm-40 56c-3-3 7-21 14-21s8 14 5 18-16 6-19 3zm28-60c3-3 21 7 21 14s-14 8-18 5-6-16-3-19zm-56 40c-3 3-21-7-21-14s14-8 18-5 6 16 3 19z'/%3E%3C/svg%3E");
+            left: 30%;
+            animation-delay: 2s;
+        }
+        
+        .flower3 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff9ebb' d='M50 20c-8 0-15 15-15 30s7 30 15 30 15-15 15-30-7-30-15-30zm0-10c5 0 10 4 10 9s-5 9-10 9-10-4-10-9 5-9 10-9zm-25 25c0 5 4 10 9 10s9-5 9-10-4-10-9-10-9 5-9 10zm50 0c0 5-4 10-9 10s-9-5-9-10 4-10 9-10 9 5 9 10zm-25 50c-5 0-10-4-10-9s5-9 10-9 10 4 10 9-5 9-10 9z'/%3E%3C/svg%3E");
+            left: 50%;
+            animation-delay: 1s;
+        }
+        
+        .flower4 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23ff6b9c' d='M50 15c-3 10-18 15-25 5s0-20 10-15c-10-5-10-15 0-20s22 5 25 15c3-10 15-20 25-15s10 15 0 20c10-5 17-5 10 5s-22-5-25-5c3 0 15 15 15 25s-15 15-20 0c5 15-5 20-15 15s-10-22 0-30z'/%3E%3C/svg%3E");
+            left: 70%;
+            animation-delay: 3s;
+        }
+        
+        .flower5 {
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23d8387d' d='M50 10c5 0 10 20 5 25s-15-5-15-10 5-15 10-15zm0 80c-5 0-10-20-5-25s15 5 15 10-5 15-10 15zm40-40c0 5-20 10-25 5s5-15 10-15 15 5 15 10zm-80 0c0-5 20-10 25-5s-5 15-10 15-15-5-15-10zm60-28c3 3-7 21-14 21s-8-14-5-18 16-6 19-3zm-40 56c-3-3 7-21 14-21s8 14 5 18-16 6-19 3zm28-60c3-3 21 7 21 14s-14 8-18 5-6-16-3-19zm-56 40c-3 3-21-7-21-14s14-8 18-5 6 16 3 19z'/%3E%3C/svg%3E");
+            left: 90%;
+            animation-delay: 0.5s;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: linear-gradient(to right, #ff6b9c, #d8387d);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 10px rgba(216, 56, 125, 0.3);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 15px rgba(216, 56, 125, 0.4);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
+        }
+        
+        footer {
+            margin-top: auto;
+            padding: 20px 0;
+            color: #d8387d;
+            font-size: 0.9rem;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.1); }
+            50% { transform: scale(1); }
+            75% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes falling {
+            0% {
+                top: -40px;
+                transform: translateX(10px) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                transform: translateX(-20px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Responsive */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .card {
+                padding: 20px;
+            }
+            
+            .gallery {
+                gap: 10px;
+            }
+            
+            .memory {
+                width: 120px;
+                height: 120px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="flowers">
+        <div class="flower flower1"></div>
+        <div class="flower flower2"></div>
+        <div class="flower flower3"></div>
+        <div class="flower flower4"></div>
+        <div class="flower flower5"></div>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1>Chúc Mừng Ngày Phụ Nữ 8/3</h1>
+            <p class="subtitle">Gửi đến người con gái tuyệt vời nhất của anh</p>
+        </header>
+
+        <section class="card">
+            <p class="message">
+                Em yêu thương,<br><br>
+                
+                Nhân ngày 8/3 này, anh muốn dành những lời chúc tốt đẹp nhất đến em. Em là nguồn cảm hứng, là ánh sáng trong cuộc sống của anh. Mỗi ngày bên em là một ngày tràn đầy niềm vui và hạnh phúc.<br><br>
+                
+                Cảm ơn em vì tất cả những điều tuyệt vời em đã mang đến cho anh. Cảm ơn vì sự kiên nhẫn, vì tình yêu, và vì tất cả những khoảnh khắc đẹp đẽ chúng ta đã cùng nhau trải qua.<br><br>
+                
+                Anh yêu em rất nhiều và mong rằng chúng ta sẽ cùng nhau đi qua nhiều mùa 8/3 nữa trong tương lai.<br><br>
+                
+                Chúc em ngày 8/3 thật vui vẻ và tràn đầy hạnh phúc!
+            </p>
+            <div class="heart">❤</div>
+            <p class="signature">Người yêu của em</p>
+        </section>
+
+        <section>
+            <h2 style="color: #d8387d; margin-bottom: 20px;">Những kỷ niệm đẹp của chúng ta</h2>
+            <div class="gallery">
+                <div class="memory">
+                    <div class="placeholder-text"><img src="83005276_2489280564733987_4776306479885975552_n.jpg"></div>
+                </div>
+                <div class="memory">
+                    <div class="placeholder-text"><img src="328547892_915261163247901_7527310441974736199_n.jpg"></div>
+                </div>
+                <div class="memory">
+                    <div class="placeholder-text"><img src="z6387825035416_fa8d3551f7827c1a6613d60d11bd3528.jpg"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="card" style="margin-top: 30px;">
+            <h2 style="color: #d8387d; margin-bottom: 20px;">Những điều đặc biệt về em</h2>
+            <p class="message">
+                1. Nụ cười tuyệt đẹp của em luôn khiến trái tim anh tan chảy<br>
+                2. Sự thông minh và tài năng của em luôn khiến anh ngưỡng mộ<br>
+                3. Cách em quan tâm và yêu thương mọi người xung quanh<br>
+                4. Sự kiên trì và nỗ lực không ngừng của em trong mọi việc<br>
+                5. Và vô vàn điều tuyệt vời khác mà anh yêu ở em...
+            </p>
+        </section>
+
+        <div class="buttons">
+            <button class="btn" onclick="alert('Anh yêu em rất nhiều! ❤️')">Yêu em!</button>
+            <button class="btn" id="surpriseBtn" onclick="showSurprise()">Bất ngờ dành cho em</button>
+        </div>
+    </div>
+
+    <footer>
+        Thiết kế với trọn tình yêu dành cho em ❤ 8/3/2025
+    </footer>
+
+    <script>
+        function showSurprise() {
+            const messages = [
+                "Em là điều tuyệt vời nhất đã đến với anh! ❤️",
+                "Anh yêu em nhiều hơn những vì sao trên bầu trời! ✨",
+                "Mỗi ngày với em là một ngày tuyệt vời! 🌸",
+                "Em đẹp nhất khi em cười! 😊",
+                "Cảm ơn em đã luôn ở bên anh! 💕"
+            ];
+            
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            
+            alert(randomMessage);
+            
+            // Thêm hiệu ứng hoa rơi nhiều hơn
+            for (let i = 0; i < 10; i++) {
+                setTimeout(() => {
+                    addFlower();
+                }, i * 300);
+            }
+        }
+        
+        function addFlower() {
+            const flower = document.createElement('div');
+            const flowerTypes = ['flower1', 'flower2', 'flower3', 'flower4', 'flower5'];
+            flower.className = `flower ${flowerTypes[Math.floor(Math.random() * flowerTypes.length)]}`;
+            flower.style.left = `${Math.random() * 100}%`;
+            flower.style.animationDuration = `${5 + Math.random() * 10}s`;
+            
+            document.querySelector('.flowers').appendChild(flower);
+            
+            setTimeout(() => {
+                flower.remove();
+            }, 10000);
+        }
+        
+        // Thêm hoa rơi ngẫu nhiên
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                addFlower();
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
